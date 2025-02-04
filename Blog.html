@@ -1,7 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Development Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+            margin-top: 50px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .week-entry {
+            margin-top: 40px;
+            padding: 15px;
+            border-left: 5px solid #ff5733;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-align: left;
+        }
+        .rubric {
+            margin-top: 40px;
+            border-collapse: collapse;
+            width: 100%;
+            color: white;
+        }
+        .rubric, .rubric th, .rubric td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: center;
+        }
+        .rubric th {
+            background: #ff5733;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
 <body>
-<h1>Test</h1>
-<p>My blog starts now.</p>
+    <div class="container">
+        <h1>My Web Development Journey</h1>
+        <h2>Week 1: Setting Up My Blog</h2>
+        <div class="week-entry">
+            <p>This week, I created my blog page using HTML and hosted it on GitHub Pages. 
+            This marks the beginning of my journey in becoming a better web developer. I spent time structuring 
+            my blog to ensure it is easy to navigate and visually appealing. The goal of this blog is to 
+            document my progress and share insights as I learn new web development tools and technologies.</p>
+            <p>To start, I have chosen two key tools to focus on: <strong>Tailwind CSS</strong> and <strong>Node.js</strong>. 
+            Over the next two weeks, I will dive deeper into these technologies, experimenting with their features 
+            and applying them in practical projects. These tools will enhance my ability to create efficient, modern, 
+            and scalable web applications.</p>
+            <p>Additionally, I have developed a rubric to evaluate each new tool I learn. This rubric will help me assess 
+            ease of learning, real-world usefulness, performance, customization, community support, scalability, and 
+            industry adoption. Using this structured approach, I aim to make informed decisions about which technologies 
+            to integrate into my workflow.</p>
+        </div>
+        
+        <h2>Rubric for Evaluating Web Development Tools</h2>
+        <table class="rubric">
+            <tr>
+                <th>Category</th>
+                <th>Criteria</th>
+                <th>1 - Poor</th>
+                <th>2 - Fair</th>
+                <th>3 - Good</th>
+                <th>4 - Excellent</th>
+            </tr>
+            <tr>
+                <td>Ease of Learning</td>
+                <td>How easy is it to learn and get started?</td>
+                <td>Steep learning curve, hard to understand</td>
+                <td>Requires effort, but manageable</td>
+                <td>Clear documentation, beginner-friendly</td>
+                <td>Intuitive, well-documented, easy adoption</td>
+            </tr>
+            <tr>
+                <td>Practical Use</td>
+                <td>How useful is it for real-world web projects?</td>
+                <td>Limited real-world use</td>
+                <td>Niche use cases</td>
+                <td>Commonly used in development</td>
+                <td>Industry standard, widely adopted</td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>How well does it perform in terms of speed and efficiency?</td>
+                <td>Slow, bloated, or inefficient</td>
+                <td>Some performance concerns</td>
+                <td>Generally fast and optimized</td>
+                <td>High performance, lightweight</td>
+            </tr>
+            <tr>
+                <td>Customization & Flexibility</td>
+                <td>How much control does it give developers?</td>
+                <td>Rigid, difficult to customize</td>
+                <td>Some flexibility, but limited options</td>
+                <td>Good level of customization</td>
+                <td>Highly flexible, adapts to many needs</td>
+            </tr>
+            <tr>
+                <td>Community & Ecosystem</td>
+                <td>How strong is its community and support?</td>
+                <td>Small or inactive community</td>
+                <td>Limited support/resources</td>
+                <td>Active community, decent support</td>
+                <td>Large community, lots of plugins/tools</td>
+            </tr>
+            <tr>
+                <td>Scalability</td>
+                <td>Can it handle large projects and scale well?</td>
+                <td>Struggles with larger applications</td>
+                <td>Works for medium projects</td>
+                <td>Scales well with optimizations</td>
+                <td>Highly scalable and used in enterprise apps</td>
+            </tr>
+            <tr>
+                <td>Adoption & Longevity</td>
+                <td>Is it widely used, and will it stay relevant?</td>
+                <td>Rarely used or outdated</td>
+                <td>Somewhat popular but declining</td>
+                <td>Actively used with ongoing support</td>
+                <td>High industry adoption, future-proof</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
