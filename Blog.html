@@ -15,37 +15,39 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(to right, #ff7e5f, #feb47b);
             text-align: center;
             color: white;
-            padding-top: 50px;
+            padding: 20px;
         }
         .container {
+            width: 90%;
             max-width: 800px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease-in-out;
-            margin-top: 50px;
         }
         h1, h2 {
             text-align: center;
         }
         .week-entry {
-            margin-top: 40px;
+            margin-top: 20px;
             padding: 15px;
             border-left: 5px solid #ff5733;
             background: rgba(255, 255, 255, 0.2);
             color: white;
             text-align: left;
+            font-size: 1rem;
         }
         .rubric {
-            margin-top: 40px;
+            margin-top: 20px;
             border-collapse: collapse;
             width: 100%;
             color: white;
+            font-size: 0.9rem;
         }
         .rubric, .rubric th, .rubric td {
             border: 1px solid white;
@@ -58,6 +60,14 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .week-entry, .rubric {
+                font-size: 0.85rem;
+            }
+            .rubric th, .rubric td {
+                padding: 5px;
+            }
         }
     </style>
 </head>
