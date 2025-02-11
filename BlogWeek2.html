@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Development Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .week-entry {
+            margin-top: 20px;
+            padding: 15px;
+            border-left: 5px solid #ff5733;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-align: left;
+            font-size: 1rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .week-entry {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Web Development Journey</h1>
+        <h2>Week 2: Learning Express.js</h2>
+        <div class="week-entry">
+            <p>This week, I focused on learning <strong>Express.js</strong>, a popular backend framework for Node.js. 
+            Since I already have experience with front-end development, I wanted to explore the backend side of web applications, 
+            where I can manage data, handle user authentication, and build APIs.</p>
 
+            <h3>🚀 What is Express.js?</h3>
+            <p>Express.js is a minimal and flexible framework that simplifies working with HTTP requests and responses. 
+            Instead of manually setting up servers with raw Node.js, Express provides an easier way to define routes, 
+            manage middleware, and structure applications efficiently.</p>
+
+            <h3>🔧 Why I Chose Express.js</h3>
+            <ul>
+                <li>✅ <strong>Minimal & Fast:</strong> Express doesn’t add unnecessary complexity.</li>
+                <li>✅ <strong>Middleware Support:</strong> Easily extend features like authentication or logging.</li>
+                <li>✅ <strong>Routing System:</strong> Defines API endpoints in a structured way.</li>
+                <li>✅ <strong>Large Ecosystem:</strong> Many third-party packages are available.</li>
+                <li>✅ <strong>Industry Adoption:</strong> Used by companies like Uber and PayPal.</li>
+            </ul>
+
+            <h3>📌 My First Impressions</h3>
+            <p>Getting started with Express was straightforward. I installed it using:</p>
+            <pre><code>npm install express</code></pre>
+            <p>Then, I created a simple server:</p>
+            <pre><code>
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello, Express!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+            </code></pre>
+            <p>This was my first hands-on experience setting up a server, and I already see why Express is widely used.</p>
+
+            <h3>📚 What’s Next?</h3>
+            <p>Now that I have a basic understanding, I plan to explore:</p>
+            <ul>
+                <li>🔹 Using Express with databases like MongoDB</li>
+                <li>🔹 Implementing authentication and security best practices</li>
+                <li>🔹 Building a full API with CRUD operations</li>
+            </ul>
+            <p>Learning Express.js has been exciting so far, and I can’t wait to dive deeper into backend development!</p>
+        </div>
+    </div>
+</body>
+</html>
