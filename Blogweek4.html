@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 - Standalone API & C++ Loader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 4: Standalone API & C++ Loader</h1>
+        
+        <div class="section">
+            <h2>Building a Standalone API</h2>
+            <p>A standalone API allows communication between different applications. This week, I built an API that serves as a backend for a C++ client.</p>
+            <p>Here's how I set up a basic Fastify API:</p>
+            <pre><code>
+const fastify = require('fastify')();
+fastify.post('/validate', async (request, reply) => {
+    const { key } = request.body;
+    if (key === "valid_key") {
+        return { status: 'success' };
+    }
+    return { status: 'failure' };
+});
+fastify.listen({ port: 3001 }, err => {
+    if (err) throw err;
+    console.log('API running on http://localhost:3001');
+});
+            </code></pre>
+        </div>
 
+        <div class="section">
+            <h2>Connecting the API to a C++ Loader</h2>
+            <p>The C++ client sends requests to the API for authentication. Heres a simple example using libcurl:</p>
+            <p> These examples I give in the blogs are just examples and are not nearly as secure, as tested, or pratical as the actual projects im using them in.</p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;curl/curl.h&gt;
+
+int main() {
+    CURL* curl = curl_easy_init();
+    if (curl) {
+        curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:3001/validate");
+        curl_easy_setopt(curl, CURLOPT_POST, 1);
+        curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "{\"key\":\"valid_key\"}");
+        curl_easy_perform(curl);
+        curl_easy_cleanup(curl);
+    }
+    return 0;
+}
+            </code></pre>
+        </div>
+
+        <div class="section">
+            <h2>Integrity Checks</h2>
+            <p>To ensure secure communication, I implemented integrity checks. The API returns a hashed response, and the C++ loader verifies it before proceeding.</p>
+            <p>Example server-side hashing with SHA-256:</p>
+            <pre><code>
+const crypto = require('crypto');
+const hash = crypto.createHash('sha256').update('valid_key').digest('hex');
+            </code></pre>
+            <p>The C++ client then verifies the hash before accepting the response.</p>
+        </div>
+
+        <div class="section excerpt">
+            <h2>Starting a GitHub Profile</h2>
+            <p>To start getting ready to apply for jobs, Im going to start actively building my GitHub profile by putting my projects on my profile.
+                 This will help showcase my work to potential employers.</p>
+        </div>
+    </div>
+</body>
+</html>
