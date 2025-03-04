@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5 - Challenges of Standalone API Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 5: Challenges of Standalone API Development</h1>
+        
+        <div class="section">
+            <h2>Complexity of Integrity Checks & Role-Based Access</h2>
+            <p>One of the hardest parts of building a standalone API is implementing proper integrity checks and making sure users have the correct permissions. Verifying whether an admin is actually an admin vs. a regular user requires role-based access control,This is also known as RBAC. which has to be built securely from scratch.</p>
+            <p>The API needs to validate user credentials, generate a secure token, and ensure those tokens are not tampered with. A common solution is using JWTs (JSON Web Tokens) signed with a secret key.</p>
+            <pre><code>
+const jwt = require('jsonwebtoken');
+const token = jwt.sign({ role: 'admin' }, 'secret_key', { expiresIn: '1h' });
+            </code></pre>
+            <p>Making sure users cannot escalate privileges,for example like a person who just has the role of "user" that could maliciously attempt to gain admin access to the backend/server. This requires validation on each request.</p>
+        </div>
+
+        <div class="section">
+            <h2>Handling Multiple Connections from Different Locations</h2>
+            <p>A challenge that can make or break new devleopers is handling multiple connections. A poorly designed API might allow unauthorized access due to CORS misconfigurations or improper rate limiting.</p>
+            <p>To handle this, we can implement middleware that validates request origins and limits access based on region or IP.</p>
+            <pre><code>
+const rateLimit = require('fastify-rate-limit');
+fastify.register(rateLimit, {
+    max: 100,
+    timeWindow: '1 minute'
+});
+            </code></pre>
+            <p>We also need to ensure our API supports concurrency properly, preventing race conditions where multiple users try to modify data simultaneously.</p>
+        </div>
+
+        <div class="section excerpt">
+            <h2>Simulating Real-World API Connections</h2>
+            <p>To test the API under real-world conditions, we can use a Python script with rotating proxies from different regions. By sending requests from various locations, we can verify how well the API handles authentication and rate limiting.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
