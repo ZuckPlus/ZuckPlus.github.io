@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 - Enhancing Fastify API Security & Low-Level C++ Security</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 6:Fastify API Security & Low Level C++ Security</h1>
+        
+        <div class="section">
+            <h2>Adding onto Fastify API Security</h2>
+            <p>Security is the backbone of any API. This week, I implemented additional measures to prevent common attack vectors such as SQL injection, XSS, CSRF, and request forgery.</p>
+            <ul>
+                <li><strong>Input Validation:</strong> Enforcing strict schemas for requests.</li>
+                <li><strong>Rate Limiting:</strong> Using Fastifys rate-limit plugin to prevent abuse.</li>
+                <li><strong>JWT Hardening:</strong> Using stronger encryption and expiring tokens quickly.</li>
+                <li><strong>HTTPS Everywhere:</strong> Enforcing TLS and refusing non-secure connections.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Low-Level Security in C++ Loader</h2>
+            <p>The C++ loader must also be secured to prevent tampering and unauthorized access. Here are a few techniques I implemented:</p>
+            <ul>
+                <li><strong>Anti-Debugging Techniques:</strong> Checking for debuggers and modifying execution flow.</li>
+                <li><strong>Obfuscation:</strong> Encrypting critical strings to prevent easy reverse engineering.</li>
+                <li><strong>Memory Protection:</strong> Encrypting sensitive data in RAM and clearing it after use.</li>
+                <li><strong>Anti Breakpoint:</strong> Checking for break points with a debugger.</li>
+                <li><strong>Good control flow:</strong> Making sure that a reverse enginer can't just jump from the auth to the loading function</li>
+                <li><strong>Server side auth:</strong> Making sure that all of the authentication process is done on the server and not on the client so it can't be maniuplated.</li>
+                <li><strong>Xor string:</strong>Xor string is a string encryperting program that is open source. I have modified it to be much more advanced. </li>
+            </ul>
+        </div>
+
+        <div class="section excerpt">
+            <h2>Final Thoughts</h2>
+            <p>I won't be doing code examples in my blogs anymore because it would be to much to put in a blog. I can alternatively start doing another github repo.
+                In the github repo I can have all of the example code and I can use Cmake as the compiler. I will also write a batch script
+                where anyone can just download the github repo and then run the batch script to setup the whole program. It will run the auth on local host.
+                then compile the loader, and open the loader. 
+
+            </p>
+        </div>
+    </div>
+</body>
+</html>
