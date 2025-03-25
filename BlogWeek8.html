@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 - Learning MCP Servers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden; /* Ensure animations don't overflow */
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.7s ease forwards;
+        }
+        .section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .section:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+        
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 8: Learning MCP Servers</h1>
+        
+        <div class="section">
+            <h2>Multi-Cloud Platform Servers</h2>
+            <p>This week, I focused on learning about Multi-Cloud Platform (MCP) servers as part of my journey to understand modern cloud infrastructure. MCP servers is an approach to cloud computing that lets multiple cloud service providers instead of relying on a single vendor.</p>
+            <p>To avoid one vendor lock in using an MCP server is the solution, with this you get the best of both worlds, well the best of all worlds from all different providers.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Benfits of using MCP</h2>
+            <p>MCP servers allow developers to distribute workloads across different cloud environments (AWS, Azure, Google Cloud, etc.) based on their specific strengths and pricing models.</p>
+            <p>Some benefits of this are increased reliability through redundancy, better disaster recovery options, and the ability to choose the best services from each provider. However, this also introduces some complications and complexicty in terms of management, security, and integration.</p>
+        </div>
+
+        <div class="section excerpt">
+            <h2>Implementation Challenges i'm facing</h2>
+            <p>Working with MCP servers requires knowledge of various cloud platforms APIs, authentication systems, and service models. Tools like Terraform and Kubernetes have become essential for managing infrastructure across multiple clouds. 
+                Enabling a consistent deployment approach despite the underlying differences.</p>
+            <p>I have not yet been able to implement an MPC server succesfully into my workflow. I am trying to setup this to work along side cursor AI.
+            I hope within the next couple of days that I can figure out how to succesfully implement this new technology into my workflow.</p>
+        </div>
+    </div>
+</body>
+</html>
