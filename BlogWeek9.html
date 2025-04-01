@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9 - Learning About Drivers & IOCTL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.7s ease forwards;
+        }
+        .section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .section:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+        
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 9: Learning About Drivers & IOCTL</h1>
+        
+        <div class="section">
+            <h2>Understanding System Drivers</h2>
+            <p>This week, I researched drivers and their crucial role in computer security. Drivers are essentially a piece of software that act as an intermediate between hardware and the operating system. enabling communication and control of the hardwares resources.</p>
+            <p>Understanding how drivers work is fundamental to system security. Drivers operate at a privileged level with direct access to hardware, making them both powerful tools and potential security vulnerabilities if not properly implemented.</p>
+        </div>
+        
+        <div class="section">
+            <h2>IOCTL (Input/Output Control)</h2>
+            <p>IOCTL (Input/Output Control) is a system call interface that allows usermode applications to communicate with device drivers. It's a powerful mechanism that enables custom commands and data transfer between applications and drivers.</p>
+            <p>IOCTL is particularly important in security contexts as it provides a controlled way to interact with hardware devices while maintaining system stability and security boundaries. It's commonly used in security tools, device management, and system monitoring applications.</p>
+        </div>
+
+        <div class="section excerpt">
+            <h2>Security Implications & Learning Journey</h2>
+            <p>Learning about drivers, specifically IOCTL drivers has opened my eyes to the complex relationship between security and driver development. Understanding how IOCTL commands are structured and validated is crucial for both developing secure drivers and identifying potential security vulnerabilities.</p>
+            <p>As part of my 20% project to learn modern development tools, understanding drivers and the way they communicate will be a very valuable skill to know when working in a company environment.
+                To clarify what drivers can be used for in a security setting, they can be used as anti viruses. A few very specific examples would be at an airport. All of those displays that show the delays and wait times and where the next plane will land and depart.
+                Those displays are all connected to a computer, those computers often run windows 10. The desks at each gate also have computers. Those computers access the cameras outside, the airlines application to see integrity checks with the plane.
+                Passangers and a ton of other information. Lets say in a scenario that a front desk employee leaves to go to the bathroom and leaves the desk or if the employee is distracte with one customer,
+                and another person walks up to the desk quickly puts a USB into the computer, monitor, display, or anything that can take an input, that USB or other device could try to inject a harmful payload, script, powershell command(s) etc.
+                That script could take over the system, open up more vulnerabilities, let the potential hacker get access to the computer, the possiblities are endless. The people who run and setup the computers probably have 
+                either paid for a anti virus subscription or made one to specifically lock down their computers. There is a few different versions of a way a Anti virus could be made. There is a Driver version, which will load the Driver directly
+                into kernel IO space and will have direct access to your computer. Another way an anti virus could be created is through the usage of a hypervisor which is similiar to a driver but it loads before windows (or your operating system)
+                and will be able to conduct and run scripts before your operating system loads which can effectively clear out any linguring vulnerabilites. Or another altnerative method is to combine the two and use both a Hypervisor of some sort and a driver.
+                Anywayws the point of this is that a driver can be used to search and protect your computer from an external threat. 
+            </p>
+        </div>
+    </div>
+</body>
+</html>
