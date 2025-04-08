@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9 - Learning About Drivers & IOCTL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.7s ease forwards;
+        }
+        .section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .section:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+        
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 9: Learning About Drivers & IOCTL</h1>
+        
+        <div class="section">
+            <h2>Getting setup for my final project</h2>
+            <p>This week I am going to discuss brain storm and finalize what my overal project will be.</p>
+            <p>What I mean by this is I have leanred all of these skills and done demos, made blog posts etc. But I have yet to come up with a big project that I can show off all of the skills I have learned.
+                I need a project to bring all of the skills that Ive learned into real life. So I am making a website. But not just any website, a program launcher and installer. This project will be similiar to something like Adobe cloud. It utilizes many many aspects, the key difference though between me and adobe cloud is that adobe cloud has a team of developers.
+
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>The program flow will work like this. A user will create an account on my website. They will then purchase / redeem a license to a product, for example : 
+                Photoshop or Adobe premier pro. Then after redeeming this license it will be linked to that user. Well in order for the user to actually use the product they just purchased
+                they need to download the cloud launcher. Or the program that acts as a central hub. This launcher will let the user install the program and launch it. Using Oauth and JWT tokens this will also handle logins.
+            </p>
+            <p></p>
+        
+        </div>
+
+        <div class="section excerpt">
+            <h2>Explaining the tech stack</h2>
+            <p>This program seems a lot simpler than it really is. The amount of complexity that I have to put into this program is going to be a lot of work.
+                I am going to be using MySQL as the database. The backend will be node js but the framework off of node js is Fastify. The front end will be using react.
+                The c++ Launcher will utilize Direct X 11, Dear ImGui framework. This will be a program that can run off 32 bit and 64 bit processors. For ARM based CPU's I don't have a way to render that yet.
+                Something unique about this project though will be allowing other developers to use this program also host their own programs from the launcher. The Launcher will have to be dynamic.
+                Im thinking that the launcher will probably be broken down into states. The Authentication state, Post Auth state, Loading all the programs state, selection state, and exiting state. 
+                The Authentication state will be dynamic, what this means is that the main loop will be a switch case. After the user enters their credentials it will be encrypted
+                using a custom wrapper for encryption to hide json bodies, headers and other information from being plain text. The Hashing algorithm for the passwords is AES256. 
+                all authentication logic will have to be done server side to try and limit the amount of vulnerabilities. The point of a switch case instead of an if statement is to make the IDA Pro Graphs during static Reverse engineering more of a pain to do static analysis.
+                That is all that I have planned out for now but I will make a roadmap with detailed explanation for everything. 
+            </p>
+            <p></p>
+        </div>
+        <div class="section">
+            <h2>Project Diagram</h2>
+            <img src="images/ioctl-diagram.png" alt="IOCTL Diagram" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">
+        </div>
+        
+        <div class="section">
+            <h2>Launcher UI Preview</h2>
+            <img src="images/launcher-preview.png" alt="Launcher UI" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">
+        </div>
+    </div>
+</body>
+</html>
