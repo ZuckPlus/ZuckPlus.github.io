@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9 - Learning About Drivers & IOCTL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #29293d;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #3a3a5e;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.7s ease forwards;
+        }
+        .section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .section:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+        .excerpt {
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+        }
+        
+        @keyframes fadeInDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 11</h1>
+        
+        <div class="section">
+            <h2>My own enclosed ecosystem</h2>
+            <p>I am making an enclosed ecosystem. The best explaination of an ecosystem in the tech world is when you have a lot of systems or projects that can 
+                all communicate and interact. The goal is to make all these system communicate and interact seamlessly. The best example of an enclosed ecosystem would be something like Apple. The way that Apple airpods and Apple Iphones and MacBooks all communicate to each other is through a 
+                protocol. This protocol is private, other headphone companies don't have access to this secret protocol, but its on every single device, because its built into the operating system. This is why their is no real competing headphones with Airpods for Iphones.
+                In order to release something on the "App store" you have to pay to get a license to the apple program compiler for X code. This means you have to pay to get access to publishing any application on Apple. On top of paying for the ability to use apples app store
+                you have to sign a contract with the bare minimum agreement that apple takes %30 of all in app purchases. 
+            </p>
+            <p>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Why</h2>
+            <p> I am making this ecosystem not like apple but in the same sense. To explain my version this will be a ecosystem meant for developers to release products on but not have to worry to much about security.
+                For developers who need to sell licenses to access their products I take care of that too. I won't be like apple and take a percent of your money, maybe in the future if this project is released and makes bank I will. But for right now its free to use.
+                I don't have a security protocal either but I will be doing a Role based access, paired with web app dnymiac routing I can make a system where Developers can not only distrbute licenses for them selves. But if they have 3rd party offical resellers they can make have resellers
+                sign up on my website and then get a discount on licenses to distribute themselves. 
+            </p>
+            <p></p>
+        
+        </div>
+
+        <div class="section excerpt">
+            <h2>Struggles so far</h2>
+            <p> I have used some AI to help me get boiler plate code out of the way. This has speed up the amount of work im able to acomplish during my small window of time I have to code each day.
+                I ran into a few issues though. AI doesn't fully understand non documented code. This means when Im asking it to transfer over the code that I made from a previous project to 
+                this new one it sometimes doesn't use the functions right. Which is fine I can always fix it pretty simple. One of the huge issues I ran into was that the AI had implemented bycrypt instead of SHA 256.
+                Well during the first initial testing phase the login function was not working. After about 8 hours of debugging I had realized that I was hashing my password twice. I had been doing so much debugging that I created more errors for myself.
+                I had been doing fall back api calls because I thought if the login was failing maybe it was a security header or CORS issue. I eventually fixed it and now it works perfeclty fine.  
+            </p>
+            <p></p>
+        </div>
+        <div class="section">
+            <h2>Login Page</h2>
+            <img src="images/LoginPage.png" alt="Login page" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">
+        </div>
+        
+        <div class="section">
+            <h2>Developer early access dashboard</h2>
+            <img src="images/DeveloperPage.png" alt="Developer Access page" style="max-width: 100%; border-radius: 8px; margin-top: 10px;">
+        </div>
+    </div>
+</body>
+</html>
